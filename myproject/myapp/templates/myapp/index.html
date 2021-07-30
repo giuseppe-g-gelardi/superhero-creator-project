@@ -7,6 +7,15 @@
     <title>Superheroes index?</title>
   </head>
   <body>
-    <h1>Hello, maybe? plz...</h1>
+    <h1>Hello, Superheroes maybe? plz...</h1>
+
+    <ul>
+      {% for hero in all_superheroes %}
+      <li>
+        <h2>{{hero.superhero_name}}</h2>
+        <a href="{% url 'myapp:detail' hero.id %}">more info</a>
+      </li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
