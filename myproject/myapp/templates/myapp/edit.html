@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Superheroes index?</title>
+    <title>hero edit</title>
   </head>
   <body>
-    <h1>Hello, Superheroes maybe? plz...</h1>
-
-    <!-- <form action="{% url 'myapp:create_new_superhero' %}" method="post">
+    <form
+      action="{% url 'myapp:edit_existing_superhero' hero.id %}"
+      method="post"
+    >
       {% csrf_token %} <br />
       Name: <input type="text" name="name" id="name" /><br />
-      Alter ego: <input type="text" name="alter_ego" id="alter_ego" /><br />
+      Alter ego:
+      <input
+        type="text"
+        name="alter_ego"
+        id="alter_ego"
+        value="{{hero.superhero_name}}"
+      /><br />
       Primary ability:<input
         type="text"
         name="primary_ability"
@@ -25,16 +32,7 @@
       /><br />
       Catchphrase:
       <input type="text" name="catchphrase" id="catchphrase" /><br />
-      <input type="submit" value="Add new!" />
-    </form> -->
-
-    <ul>
-      {% for hero in all_superheroes %}
-      <li>
-        <h2>{{hero.superhero_name}}</h2>
-        <a href="{% url 'myapp:detail' hero.id %}">more info</a>
-      </li>
-      {% endfor %}
-    </ul>
+      <input type="submit" value="Edit your hero!" />
+    </form>
   </body>
 </html>
